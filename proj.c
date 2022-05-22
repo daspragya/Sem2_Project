@@ -14,6 +14,13 @@ void addtext(char ch, int *i, char *a, char *chs)
 
 int wpm();
 
+int length(char *a)
+{
+	int i=0;
+	while(a[i]!='\0'){i++;}
+	return i;
+}
+
 void check(char *a, char *chs, int n, int mis)
 {
 	for(int i=0;i<n-1;i++)
@@ -31,8 +38,14 @@ int main()
  init_pair(3, COLOR_RED, COLOR_BLACK);
  attron(COLOR_PAIR(1)|A_BOLD);
  printw("%s","Hello!!\n");
- char a[]="This is a test text to check your speed!";
- int n=sizeof(a)/sizeof(a[0]);
+ char *filename = "lines.txt";
+ FILE *fp = fopen(filename, "r");
+ char a[5000],c;int j=0;
+ while ((c = fgetc(fp)) != EOF)
+ {a[j]=c;j++;}
+ fclose(fp);
+ //char a[]="This is a test text to check your speed!";
+ int n=length(a);
  printw("%s",a);addch('\n');refresh();
  attroff(COLOR_PAIR(1)|A_BOLD);
  char chs[n]; int ch;
