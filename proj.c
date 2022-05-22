@@ -2,9 +2,11 @@
 #include<stdlib.h>
 #include<string.h>
 
-/*THE BACKSPACE IS NOT GETTING ACCESSED OR SOMETHING? SO YEAH, INSTEAD OF BACKSPACE YOU'VE USED ENTER FOR SAME STUFF.*/
+/*THE BACKSPACE IS NOT GETTING ACCESSED SO INSTEAD OF BACKSPACE I'VE USED ENTER FOR SAME STUFF.
+MEANING, ENTER WORKS LIKE BACKSPACE*/
+
 void addtext(char ch, int *i, char *a, char *chs)
-{if(ch==KEY_BACKSPACE){*i=*i-2;chs[*i+1]='\0';mvaddch(1,*i+1,a[*i+1]|COLOR_PAIR(1));}
+{if(ch=='\n'){*i=*i-2;chs[*i+1]='\0';mvaddch(1,*i+1,a[*i+1]|COLOR_PAIR(1));}
  else if(('A'<=ch && ch<='Z') | ('a'<=ch && ch<='z') | ('0'<=ch && ch<='9') | ch=='!' | ch==',' | ch==' '| ch=='.')
  	{if(a[*i]==chs[*i]){mvaddch(1,*i,ch|COLOR_PAIR(2));}
  	 else{mvaddch(1,*i,ch|COLOR_PAIR(3));}}
@@ -36,7 +38,7 @@ int main()
  char chs[n]; int ch;
  int i=0;
  while(i<n-1)
- {ch=getch();if(ch!=KEY_BACKSPACE){mvaddch(3,i,ch|COLOR_PAIR(2));}chs[i]=ch;addtext(ch,&i,a,chs);i++;}
+ {ch=getch();chs[i]=ch;addtext(ch,&i,a,chs);i++;}
  check(a,chs,n,0);
  getch();
  endwin();
