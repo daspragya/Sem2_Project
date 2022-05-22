@@ -38,7 +38,11 @@ int main()
  init_pair(3, COLOR_RED, COLOR_BLACK);
  attron(COLOR_PAIR(1)|A_BOLD);
  printw("%s","Hello!!\n");
+ 
+ //Only this line will be changed for different levels, like beginner.txt, intermediate.txt or advanced.txt
  char *filename = "lines.txt";
+ 
+ 
  FILE *fp = fopen(filename, "r");
  char a[5000],c;int j=0;
  while ((c = fgetc(fp)) != EOF)
