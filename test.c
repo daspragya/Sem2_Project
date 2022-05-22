@@ -1,3 +1,4 @@
+//This is a testing file to test out new things, right now I'm working on finding out why Backspace isin't working in the proj.c code.
 #include <ncurses.h>
 int main()
 { int ch;
