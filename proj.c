@@ -10,7 +10,7 @@ void addtext(char ch, int *i, char *a, char *chs)
  else if(('A'<=ch && ch<='Z') | ('a'<=ch && ch<='z') | ('0'<=ch && ch<='9') | ch=='!' | ch==',' | ch==' '| ch=='.')
  	{if(a[*i]==chs[*i]){mvaddch(1,*i,ch|COLOR_PAIR(2));}
  	 else{mvaddch(1,*i,ch|COLOR_PAIR(3));}}
- else{*i=*i-1;mvprintw(2,*i,"%c",ch);}}
+ else{*i=*i-1;}}
 
 int wpm();
 
