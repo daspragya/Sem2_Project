@@ -1,3 +1,4 @@
+//This is a pre-bulit c file for typing tutuor
 #include <curses.h>
 #include <stdio.h>
 #include <stdlib.h>
